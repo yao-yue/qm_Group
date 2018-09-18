@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(/images/bg.jpg);
+    background-color: #000;
+}
+
+img {
+    width: 100%;
+
+}
+
+.starwars-demo {
+    height: 17em;
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    width: 34em;
+    /* background-color: red; */                      /*用背景颜色看盒子调位，使用完可以注释*/
+    transform: translate(-50%,-50%);                  /*针对自身宽度移动*/ /* 把盒子移正中间 有五种 */
+    /* 眼睛跟屏幕的距离 */
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+.star, .wars, .byline {
+    position: absolute;
+}
+
+.star {
+    top: -0.75em;  
+    /* 动画，star 动作脚本 */
+    animation: star 10s ease-out infinite;                   /*ease-out infinite*/                                     
+}
+
+.wars {
+    bottom: -0.5em;
+    animation: wars 10s ease-out infinite;   
+}
+
+@keyframes star {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);                        /*放大1.5倍*/
+    }
+    20% {
+        opacity: 1;
+    }
+    89% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateZ(-400em);                          /*1em=16px  人眼离屏幕大概700px translateZ向Z轴走*/
+    }
+}
+
+@keyframes wars {
+    0% {
+        opacity: 0;
+        transform: scale(1.5) translateY(0.5em);                         
+    }
+    20% {                                                     /*关键帧*/
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateZ(-400em);                          
+    }
+}
