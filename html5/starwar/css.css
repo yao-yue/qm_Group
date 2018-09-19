@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url(/images/bg.jpg);
+    background: url(./images/bg.jpg);
     background-color: #000;
 }
 
@@ -41,6 +41,17 @@ img {
     animation: wars 10s ease-out infinite;   
 }
 
+.byline {
+    width: 150%;
+    top:-0.80em;
+    font: bold 50px serif;
+    color: #ffff;
+    animation: byline 10s ease-out infinite;
+    top:37%;
+    left: -18%;
+    transform-style: preserve-3d;
+}
+
 @keyframes star {
     0% {
         opacity: 0;
@@ -74,5 +85,38 @@ img {
     100% {
         opacity: 0;
         transform: translateZ(-400em);                          
+    }
+}
+
+@keyframes byline{
+    0% {
+        opacity: 0;
+        transform: scale(1.5) ;                         
+    }
+    20% {                                                     /*关键帧*/
+        opacity: 1;
+        transform: translateZ(10em) rotateY(30deg);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1);
+        transform: translateZ(10em) rotateY(-30deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(0.6);
+        transform: translateZ(-400em); 
+    }
+    55% {
+        opacity: 0.5;  
+                               
+    }
+    75%{
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
     }
 }
