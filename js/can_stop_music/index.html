@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可暂停音乐</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+
+<body>
+    <div id="player"></div>
+    <audio src="./sounds/08.DJ.wav" id="nightDJ"></audio>
+
+    <script>
+        window.onload = function () {
+            var player = document.getElementById("player");
+            player.addEventListener('click', playDJ);
+            function playDJ(e) {
+                console.log();
+                const audio = document.querySelector(`#nightDJ`);
+                if (audio.paused) {
+                    audio.play();
+                    play.style.animationPlayState = 'running';
+                } else {
+                    audio.pause();
+                    play.style.animationPlayState = 'paused';
+                }
+            }
+        } 
+    </script>
+
+</body>
+
+</html>

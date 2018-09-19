@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小猪的音乐</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+
+<body>
+    <!-- 按键 打击反馈 不只是声音，还要有视觉冲击 -->
+    <!-- .keys>(.key>div+span.sound)*8 -->
+
+    <div class="keys">
+        <div class="key" data-key="65">
+            <div>A</div>
+            <span class="sound">clap</span>
+        </div>
+        <div class="key" data-key="83">
+            <div>S</div>
+            <span class="sound">hihat</span>
+        </div>
+        <div class="key"data-key="68">
+            <div>D</div>
+            <span class="sound">kick</span>
+        </div>
+        <div class="key" data-key="70">
+            <div>F</div>
+            <span class="sound">openhat</span>
+        </div>
+        <div class="key" data-key="71">
+            <div>G</div>
+            <span class="sound">boom</span>
+        </div>
+        <div class="key" data-key="74">
+            <div>J</div>
+            <span class="sound">ride</span>
+        </div>
+        <div class="key" data-key="75">
+            <div>K</div>
+            <span class="sound">snare</span>
+        </div>
+        <div class="key" data-key="76">
+            <div>L</div>
+            <span class="sound">tink</span>
+        </div>
+    </div>
+    <audio data-key="65" src="./sounds/clap.wav"></audio>
+    <audio data-key="83" src="./sounds/hihat.wav"></audio>
+    <audio data-key="68" src="./sounds/kick.wav"></audio>
+    <audio data-key="70" src="./sounds/openhat.wav"></audio>
+    <audio data-key="71" src="./sounds/boom.wav"></audio>
+    <audio data-key="74" src="./sounds/ride.wav"></audio>
+    <audio data-key="75" src="./sounds/snare.wav"></audio>
+    <audio data-key="76" src="./sounds/tink.wav"></audio>
+
+    <script>
+        // dom  Document Object Model，简称DOM 在网页上，组织页面（或文档）的对象被组织在一个树形结构中，
+        // 用来表示文档中对象的标准模型就称为DOM
+        window.onload = function () {
+            // const audioClap = document.getElementById('audio_clap');
+            // audioClap.play();
+            // const audioTink = document.getElementById('audio_tink');
+            // audioTink.play();
+
+            // js 基于事件机制 按键事件   
+            // 在事件发生的那一刻，事件对象
+
+            // const audioObj = {
+            //     '65':document.getElementById('audio_clap'),
+            //     '32':document.getElementById('audio_tink')
+            // };
+
+
+            function playSound(e) {
+
+                // 将keyCode 跟标签audio 映射一步做掉？
+                // keycode -> 
+
+                // 如何利用这个code 去播放相应的声音?
+                console.log(e.keyCode);
+                const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);          //标签自定义属性 ES6的自定义模板
+                const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+
+                key.classList.add('playing');
+                // keyCode => audio ? find
+                // if(audioObj[e.keyCode])
+                // audioObj[e.keyCode].play();                /*变量用[]框起来*/
+                // }
+
+                if (audio)
+
+
+                    audio.play();
+            }
+            const keys = Array.from(document.querySelectorAll('.key'));
+            keys.forEach(key => key.addEventListener('transitionend',removeTransition));
+
+            function removeTransition(e) {
+                e.target.classList.remove('playing');
+            }
+
+            window.addEventListener('keydown', playSound);
+
+        }
+        // h5 仿生应用
+        // 按相应的键发出相应的声音
+        // js 控制声音                           css结构HTML表现js控制
+        // 1. autoplay -> js 播放声音
+        // 2. 匹配按键 出相应的声音
+    </script>
+</body>
+
+</html>
