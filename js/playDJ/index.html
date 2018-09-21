@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>如果我是DJ</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+
+<body>
+    <div id="player">
+        <audio src="https://m10.music.126.net/20180920180227/c5ed610c788df6e94cb161a90fba12b6/ymusic/4174/32a9/6342/e681f20c8416341e044014fc1d72d5e0.mp3"
+            id="ifDJ"></audio>
+    </div>
+    <script>
+        window.onload = function () {
+            var player = document.getElementById("player");
+            player.addEventListener('click', playDJ);
+            function playDJ(e) {
+                console.log();
+                const audio = document.querySelector(`#ifDJ`);
+                if (audio.paused) {
+                    audio.play();
+                    player.style.animationPlayState = 'running';
+                } else {
+                    audio.pause();
+                    player.style.animationPlayState = 'paused';
+                }
+            }
+        } 
+    </script>
+
+</body>
+
+</html>
