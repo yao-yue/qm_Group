@@ -1,0 +1,50 @@
+/*
+*author hbw
+*date 18-9-25
+*功能 tabbar组件
+*/
+
+.weui-tabbar {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 500;
+    background-color: #F7F7FA;
+}
+.weui-tabbar__item {
+    flex: 1;                         /*子元素flex设置为等比例1:1:1*/
+    text-align: center;             /*快速让水平内容居中*/
+    padding: 5px 0 0 ;               /*顺时针，上右下左，缺少一个会找他对面的*/
+    font-size: 0;
+    color: #808080;
+}
+.weui-tabbar__item > span {
+    display: inline-block;
+    position: relative;                        /*方便badge进行绝对定位*/
+}
+.weui-tabbar__icon {
+    display: inline-block;                    /*行内元素是不能设置宽高 设置为inline-block以便设置宽高*/
+    width: 27px;
+    height: 27px;
+}
+.weui-badge {
+    position: absolute;
+    top: -2px;
+    right: -13px;
+    min-width: 8px;
+    display: inline-block;
+    padding: .15em .4em;                        /* 上下.15  左右.4*/
+    font-size: 12px;
+    line-height: 12px;
+    background-color: #F43539;
+    border-radius: 18px;                        /*盒子圆角，超出盒子长宽的的话，就会变成圆形*/
+    color: white;
+}
+.weui-tabbar__label {
+    font-size: 10px;
+    color: #808080;
+    text-align: center;
+    line-height: 1.8;                           /*相对于文字size的1.8倍*/
+
+}
