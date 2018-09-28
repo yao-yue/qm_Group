@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>svg 矢量图做进度条</title>
+    <style>
+    html, body {
+        background-color: #2952ff;
+        height: 100%;
+        display: flex;
+        align-items: center;                    /*纵轴方向上居中*/
+        justify-content: center;               
+        position: relative;
+    }
+    input{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 80px;
+    }
+    .progress-ring__circle {
+        /* stroke-dasharray: 10 20;                 10实线 20空 */
+        /* stroke-dashoffset: 100; */
+        transform: rotate(-90deg);
+        transform-origin:  50%  50%;                        /*围绕点*/
+        transition: 0.35s stroke-dashoffset;
+    }
+    </style>
+</head>
+<body>
+    <svg class="progress-ring" height="120" width="120">
+        <circle class="progress-ring__circle" r="52" cx="60" cy="60" stroke-width="3" stroke="white" fill="transparent" />
+
+    </svg>
+    <input type="number" value="35" step="5" min="0" max="100" />
+</body>
+<script>
+    var circle = document.querySelector('circle');
+    var radius = circle.r.baseVal.value;
+    var circumference = radius * 2 * Math.PI;
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;             //变量用${}
+    circle.style.strokeDaoffset = `${circumference}`;                                        //偏移量
+    function setProgress(percent) {
+        const offset = circumference - percent / 100 * circumference;
+        //offset 是从右中部分开始的， 而我们的习惯是中上开始的
+        circle.style.strokeDashoffset = offset;
+    }
+    var timer = setInterval(() => {
+      let v = parseInt(input.value);
+      v++;
+      input.value = v + '';
+      setProgress(input.value);
+    }, 200);
+    const input = document.querySelector('input');
+    setProgress(input.value);
+    // input.addEventListener('change', function() {
+    //     setProgress(this.value);
+    // });
+    // console.log(Object.prototype.toString.call(circle));
+</script>
+</html>
