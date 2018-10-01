@@ -12,7 +12,8 @@
             padding: 0;
         }
 
-        ul,li {
+        ul,
+        li {
             list-style: none;
         }
 
@@ -28,6 +29,15 @@
             color: #666699;
         }
 
+        a:hover {
+            color: #ffffff;
+            background-color: rgb(10, 8, 129);
+        }
+
+        a:active {
+            background-color: rgb(233, 206, 87);
+        }
+
         .content {
             width: 1040px;
             margin: 0 auto;
@@ -37,7 +47,7 @@
             width: 675px;
             float: left;
             height: 500px;
-            /* background-color: red; */
+            background-color: red;
         }
 
         .aside {
@@ -99,7 +109,47 @@
             font-size: 13px;
         }
 
+        .billboard-hd h2 {
+            font: 16px Arial, Helvetica, sans-serif;
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border-bottom: #eeeeee 1px solid;
+            line-height: 24px;
+        }
+
+        .billboard-hd span {
+            font-size: 13px;
+            /* line-height: 24px; */
+            margin-left: 12px;
+        }
+
+        /* 设置table */
+        .billboard-bd  {
+            font-size: 13px;
+            line-height: 1.62;
+            font-family: Helvetica, Arial, sans-serif;
+        }
         
+        .billboard-bd table {
+            border-collapse: collapse;
+        }
+
+        /* 设置导航数字*/
+        .billboard-bd .order {
+            font-size: 12px;
+            width: 19px;
+            line-height: 1.62;
+            text-align: center;
+            padding: 7px 0px;
+            border-bottom: 1px #eeeeee solid;
+        }
+
+        /* 设置title */
+        .billboard-bd .title {
+            padding: 7px 0;
+            width: 281px;
+            border-bottom: 1px #eeeeee solid;
+        }
     </style>
 </head>
 
@@ -131,11 +181,11 @@
             <div class="billboard">
                 <div class="billboard-hd">
                     <h2>
-                        "一周口碑榜"
-                    </h2>
+                        一周口碑榜
                     <span>
-                        <a href="#">更多榜单</a>
+                        <a href="#">更多榜单»</a>
                     </span>
+                </h2>
                 </div>
                 <div class="billboard-bd">
                     <table>
