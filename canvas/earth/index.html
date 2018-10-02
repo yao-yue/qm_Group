@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3D_earth</title>
+    <!-- webgl 库 -->
+    <script src="./libs/three.min.js"></script>
+    <script src="./libs/stats.min.js"></script>
+    <style>
+    #container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        z-index: 999;
+    }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <canvas id="webglcanvas"></canvas>
+    <script>
+    var container,
+        canvas,    //功能标签 绘图API
+        stats,
+        camera,    //相机，正交相机，透视相机
+        scene,     //场景
+        renderer,    //渲染器
+        group,     //物体组
+        mouseX = 0,
+        mouseY = 0,
+        windowHalfX = window.innerWidth / 2,
+        windowHalfY = window.innerHeight / 2;
+
+    init();
+    animate();
+    function init() {
+        container = document.getElementById('container');
+        canvas = document.getElementById('webglcanvas');
+
+        //3D绘制区  相机
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 2000);
+        camera.position.z = 500;   //远近
+        
+
+        //场景
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+        //创建一个组
+        group = new THREE.Group();
+        scene.add(group);
+
+        //地球  数学形状 贴图
+        var loader = new THREE.TextureLoader();
+        loader.load('land_ocean_ice_cloud_2048.jpg', function(texture) {
+            // console.log(texture);
+            var geometry = new THREE.SphereGeometry(200, 20, 20);    //形状
+            var material = new THREE.MeshBasicMaterial({map: texture});   //material 材质即外面的贴图
+            var mesh = new THREE.Mesh(geometry, material);
+            group.add(mesh);
+        });
+
+        //
+        renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            antialias: true,    //抗锯齿
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.addEventListener('mousemove', onDocumentMouseMove, false);
+        window.addEventListener('resize', onWindowResize, false);                     //resize浏览器窗口大小变化事件
+    }
+
+    function onWindowResize(event) {
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    
+    function onDocumentMouseMove(event) {
+        console.log(event.clientX, event.clientY);
+        mouseX = event.clientX - windowHalfX;           //halfX 与正中心的偏移量
+        mouseY = event.clientY - windowHalfY;
+    } 
+    function animate() {
+        // canvas 核心
+        requestAnimationFrame(animate);      //请求运动帧
+        render();
+    }
+    function render() {
+        group.rotation.y -= 0.005;            //逆时针转   1秒60帧
+        camera.position.x += (mouseX - camera.position.x) * 0.05;
+        camera.position.y += (mouseY - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+    }
+    </script>
+</body>
+</html>
