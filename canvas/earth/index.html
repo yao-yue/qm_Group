@@ -92,7 +92,7 @@
         render();
     }
     function render() {
-        group.rotation.y -= 0.005;            //逆时针转   1秒60帧
+        group.rotation.y -= 0.05;            //逆时针转   1秒60帧
         camera.position.x += (mouseX - camera.position.x) * 0.05;
         camera.position.y += (mouseY - camera.position.y) * 0.05;
         camera.lookAt(scene.position);
