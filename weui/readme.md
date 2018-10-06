@@ -8,7 +8,6 @@
     __icon
   Modifier 
     状态的修改
-    __item_on (一个下划线))
 
 - WEUI
  微信UI规范，内嵌公众号，小程序，调起webview，为了让用户体验一致，让用户有认同感。

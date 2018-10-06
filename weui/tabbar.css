@@ -15,7 +15,7 @@
 .weui-tabbar__item {
     flex: 1;                         /*子元素flex设置为等比例1:1:1*/
     text-align: center;             /*快速让水平内容居中*/
-    padding: 5px 0 0 ;               /*顺时针，上右下左，缺少一个会找他对面的*/
+    padding: 5px 0 0 ;               /*顺时针，上右下左，缺少一个即 上 左右 下*/
     font-size: 0;
     color: #808080;
 }
@@ -27,6 +27,8 @@
     display: inline-block;                    /*行内元素是不能设置宽高 设置为inline-block以便设置宽高*/
     width: 27px;
     height: 27px;
+    fill: currentColor;
+    overflow: hidden;
 }
 .weui-badge {
     position: absolute;
