@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6 Array 新方法</title>
+</head>
+<body>
+    
+</body>
+<script>
+const race = '100m Dash';
+const winners = ['Hunber Gath', 'Singa Song', 'Imda Bos'];
+// 转换成json数组 
+// const win = [];
+// for (let i = 0; i < winners.length; i++) {
+//     win.push({
+//         name: winners[i],
+//         race: race,
+//         place: i + 1
+//     });
+// }
+// console.log(win);
+
+//遍历每一项 函数里，返回新的一项
+//函数式编程
+// 箭头函数函数题内只有一行代码，并且是返回值，可以省去return用一个括号把他们包起来
+const win = winners.forEach((winner, i) =>({
+    name: winners[i],
+    race,
+    place: i + 1
+}));
+console.log(win);
+</script>
+</html>
