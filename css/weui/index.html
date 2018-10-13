@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEUI CELL</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/weui/1.1.2/style/weui.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label for="" class="weui-label">qq</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input type="number" class="weui-input" placeholder="请输入qq号"/> 
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+            <label class="weui-label">手机号</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="tel" placeholder="请输入手机号">
+        </div>
+        <div class="weui-cell__ft">
+            <button class="weui-vcode-btn">获取验证码</button>
+        </div>
+    </div>
+
+    <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+            <label for="" class="weui-label">国家/地区</label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select" name="select2">
+                <option value="1">中国</option>
+                <option value="2">美国</option>
+                <option value="3">英国</option>
+            </select>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-- 组件式开发WEUI 
+https://weui.io/#input
+https://weui.io/# ${you want}
+ 选中 edit as html -->

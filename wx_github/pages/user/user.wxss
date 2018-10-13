@@ -1,0 +1,13 @@
+.index {
+    display: flex;
+    flex-direction: column;    /*弹性方向 */
+    justify-content: center;      
+    align-items: center;     /*start靠左 end靠右*/
+}
+.logo {
+    width: 200px;
+    height: 200px;
+}
+.username {
+    font-size: 14px;
+}
