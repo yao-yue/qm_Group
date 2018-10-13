@@ -106,7 +106,7 @@ Page({
     console.log('test Drive')
   },
   readMore (event) {
-    // wx小程序的js api
+    // wx小程序的 api
     wx.navigateTo({
       url: `/pages/vehicles/show?id=${event.target.dataset.id}`
     })
