@@ -1,0 +1,17 @@
+{
+  "name": "wxapp_weather",
+  "version": "1.0.0",
+  "description": "- 开发目录 \r     项目目录\r     Page\r         wxml weui 组件 swiper(滑屏功能)\r         wxss rpx(不管哪种手机宽度都是750rpx，设计稿是750rpx)\r         .js 文件 data 事件监听 \r         MVVM \r     根目录下\r     app.js   入口\r     app.json 项目级别配置文件\r     app.wxss 项目级别的样式文件",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jsonminify": "^1.1.0",
+    "jsonminify": "^0.4.1"
+  }
+}

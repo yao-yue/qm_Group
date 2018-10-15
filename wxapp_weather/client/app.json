@@ -1,0 +1,14 @@
+{
+    "pages": [
+      "pages/index/index",
+      "pages/stories/index",
+      "pages/logs/logs",
+      "pages/vehicles/show"
+    ],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "Weather",
+      "navigationBarTextStyle": "black"
+    }
+  }
