@@ -1,0 +1,129 @@
+/* 10rem 宽度 10rem 
+1rem = 1/10 宽度
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 
+html {
+    font-size: 37.5px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: 0;
+}
+
+.row {
+    height: 100%;
+}
+
+.col-1 {
+    display: inline-block;
+    width: 1rem;
+    height: 100%;
+    background: black;
+}
+
+.col-1:nth-child(odd) {
+    background: pink;
+} */
+    
+html, body {
+    height: 100%;
+}
+
+.html_content {
+    height: 100%;
+}
+
+.item-section {
+    background-color: red;
+    position: relative;
+    min-height: 100%;
+}
+
+.item-section_header img {
+    width: 10rem;
+
+}
+
+ul, li {
+    list-style: none;
+}
+
+.item-section ul {
+    padding: 0.133333rem;
+}
+
+.flag {
+    display: table;
+    width: 100%;
+    margin-bottom: 1px;
+    background: #ffffff;
+}
+
+.flag .flag-item {
+    display: table-cell;
+    padding: .16rem 0;
+    vertical-align: top;
+    background: #fff;
+}
+
+.flag .flag-item.figure {
+    width: 2.346667rem;
+    height: 2.346667rem;
+}
+
+.flag .flag-item.figure img{
+    max-width: 100%;
+}
+
+.flag .flag-item .flag-title {
+    color: #000000;
+}
+
+.flag .flag-item .flag-price{
+
+}
+
+.flag .flag-item .flag-price span {
+    background-color: #f32a4c;
+    font-family : sans-serif;
+    font-size : .266667em;
+    color : #ffffff;
+    padding: .053333rem;
+}
+
+.flag .flag-item .flag-price .strong {
+    color: #fd2748;
+    font-size: .373333rem;
+}
+
+.flag .flag-item .flag-price .small {
+    color: #d03353;
+    font-size: .346667rem;
+}
+
+.flag .flag-item .flag-status {
+    font-size: .346667rem;
+}
+
+.flag .flag-item .flag-btn {
+    background-color: #f5294c;
+    text-align: center;
+    font-family : sans-serif;
+    font-size : .373333em;
+    color : #ffffff;
+    height: .64rem;
+    width: 2.133333rem;
+    right: 0.253333rem;
+    margin-bottom: .2rem;
+    line-height: .64rem;
+    position: absolute;
+}
