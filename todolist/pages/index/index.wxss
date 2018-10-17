@@ -1,0 +1,58 @@
+
+
+/* flex:1 是flex-grow flex-shrink flex-basis     0 1 auto 的缩写  */
+.lists {
+  flex: 1;
+  height: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.titleBar {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 0 30rpx 10rpx;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  /* background-color: #eef; */
+}
+
+.titleBar .status {
+  flex: 1;
+}
+
+.titleBar .status .add {
+  overflow: hidden;
+}
+
+.titleBar .status .add button {
+  margin: 0;
+}
+
+.titleBar .status text {
+  display: inline;
+  /* 微信小程序的适配字体单位  pt */
+  font-size: 12.5rpt;
+  padding: 10rpx 20rpx 10rpx 0;
+  margin-right: 15rpx;
+  color: #aaa;
+}
+
+.titleBar .status text.active {
+  color: #ca2100;
+}
+
+.nodata {
+  padding: 30rpx;
+  font-size: 11pt;
+  text-align: center;
+  font-style: italic;
+}
