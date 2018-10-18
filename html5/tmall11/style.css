@@ -6,11 +6,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* 
+
 html {
     font-size: 37.5px;
+    font: sans-serif;
 }
-
+/* 
 html, body {
     height: 100%;
 }
@@ -43,14 +44,12 @@ html, body {
 }
 
 .item-section {
-    background-color: red;
-    position: relative;
+    background-color: #f12b4b;
     min-height: 100%;
 }
 
 .item-section_header img {
     width: 10rem;
-
 }
 
 ul, li {
@@ -76,54 +75,76 @@ ul, li {
 }
 
 .flag .flag-item.figure {
-    width: 2.346667rem;
-    height: 2.346667rem;
+
 }
 
 .flag .flag-item.figure img{
-    max-width: 100%;
+    /* max-width: 100%; */
+    width: 2.4rem;
+    height: 2.4rem;
 }
 
-.flag .flag-item .flag-title {
-    color: #000000;
+.flag .flag-item.figcaption {
+    padding: 0.16rem 0.2rem;
+    position: relative;
+}
+
+.flag .flag-item .flag-title a{
+    color: #333;
+    line-height: 1.25;
+    overflow: hidden;
+    text-decoration: none;
 }
 
 .flag .flag-item .flag-price{
-
+    padding: 0.15rem 0 0.2rem;
 }
 
 .flag .flag-item .flag-price span {
     background-color: #f32a4c;
     font-family : sans-serif;
-    font-size : .266667em;
+    font-size : .293333rem;
     color : #ffffff;
-    padding: .053333rem;
+    padding: 0.026667rem 0.08rem 0.0133333rem;
+    border-radius: 0.026667rem;
+    vertical-align: middle;
+    font-weight: 700;
+    margin-right: 0.066667rem;
+    display: inline-block;
 }
 
-.flag .flag-item .flag-price .strong {
-    color: #fd2748;
-    font-size: .373333rem;
+.flag .flag-item .flag-price strong {
+    color: #d92e4b;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 700;
+    margin-right: .16rem;
 }
 
-.flag .flag-item .flag-price .small {
+.flag .flag-item .flag-price small {
     color: #d03353;
-    font-size: .346667rem;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
 }
 
 .flag .flag-item .flag-status {
-    font-size: .346667rem;
+    color: #ff3600;
+    font-size: 12px;
 }
 
 .flag .flag-item .flag-btn {
     background-color: #f5294c;
     text-align: center;
-    font-family : sans-serif;
-    font-size : .373333em;
+    font-size : 14px;
     color : #ffffff;
     height: .64rem;
     width: 2.133333rem;
-    right: 0.253333rem;
-    margin-bottom: .2rem;
+    right: 0.2rem;
     line-height: .64rem;
     position: absolute;
+    border-radius: .02667rem;
+    bottom: .133333rem;
 }
