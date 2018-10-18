@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+    <div class="box">
+        <div class="username"></div>
+        <div class="motto"></div>
+    </div>
+
+    <script>
+        // 原生xhr异步拉取数据
+        document.addEventListener('DOMContentLoaded', function () {
+            const eleUsername = document.querySelector('.username');
+            const eleMotto = document.querySelector('.motto');
+            let xhr = null;  //异步js 主动拉取的核心对象 Ajax
+            // 使用XMLHttpRequest (XHR)对象可以与服务器交互。您可以从URL获取数据，
+            // 而无需让整个的页面刷新。
+            // 这使得Web页面可以只更新页面的局部，而不影响用户的操作
+            //浏览器嗅探其是否存在
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else {
+                //老浏览器
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            // 从页面打开一个去(url.json资源)后端数据服务的通道
+            // 主动拉
+            xhr.open('get', '/dream.json', true);
+            xhr.send();
+            //事件监听 对方的响应有几个状态
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                    const dream = JSON.parse(xhr.responseText);
+                    console.log(dream);
+                    eleUsername.innerHTML = dream.username;
+                    eleMotto.innerHTML = dream.motto;
+                }
+            }
+        });
+    </script>
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+    <script>
+        // $ => window onload
+        // domReady事件    比window onload事件早一些
+        // $(function () {
+        // const eleusername = document.querySelector('.username');
+        // console.log(eleusername); 
+        // })
+        $(function () {
+            // $('.username').html('白骨精');
+            //发送http请求把数据拉取过来
+            $.getJSON('/dream.json', function(data) {
+                console.log(data);
+                $('.username').html(data.username);
+                $('.motto').html(data.motto);
+            })
+        });
+    </script> -->
+
+</body>
+
+</html>
