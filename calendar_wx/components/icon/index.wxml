@@ -1,0 +1,10 @@
+
+
+<text class="iconfont icon-{{type}}" style="color:{{color}}" ></text>
+
+<i class="iconfont icon-edit"></i>
+<i class="iconfont icon-home"></i>
+<i class="iconfont icon-map"></i>
+<i class="iconfont icon-add"></i>
+<!-- props   自定义属性
+<icon type="edit" /> -->
