@@ -13,11 +13,45 @@ Page({
 
   selectAll() {
     let carts = this.data.carts
-    this.data.selectAllStatus = !this.data.selectAllStatus
-    carts.selected = this.data.selectAllStatus
+    let selectAllStatus = this.data.selectAllStatus
+    selectAllStatus = !selectAllStatus
+    carts.forEach((item, index) => {
+      item.selected = selectAllStatus
+    })
     this.setData({
+      carts,
+      selectAllStatus
+    })
+    this.getTotalPrice()
+    console.log(selectAllStatus);
+  },
+
+  addCount(e) {
+    let index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    let cart = carts[index];
+    cart.num++
+    this.setData ({
       carts
     })
+    this.getTotalPrice()
+  },
+  
+  minusCount(e) {
+    let index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    let cart = carts[index];
+    if(cart.num > 0) {
+      cart.num--
+    // }else if (cart.num == 0)
+    // {
+    //   this.deleteList(e)
+    // 
+    }else return;
+    this.setData ({
+      carts
+    })
+    this.getTotalPrice()
   },
   /**
    * 生命周期函数--监听页面加载
@@ -66,6 +100,7 @@ Page({
       selectAllStatus: isAllSelected
     })
     this.getTotalPrice()
+    console.log(isAllSelected);
   },
 
   deleteList(e) {
@@ -83,7 +118,6 @@ Page({
         hasList: false
       })
     }
-
     this.getTotalPrice()
   },
 
