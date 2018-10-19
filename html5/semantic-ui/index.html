@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sementic-ui login</title>
+    <link href="https://cdn.bootcss.com/semantic-ui/2.3.1/semantic.min.css" rel="stylesheet" />
+    <style>
+        body {
+              background: #dcddda;
+            }
+            body > .grid {
+              height: 100%;
+            }
+            .column {
+              max-width: 450px;
+            }
+            </style>
+</head>
+
+<body>
+    <!-- grid- n.格子 -->
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui teal image header">
+                <img src="http://www.semantic-ui.cn/examples/assets/images/logo.png" class="image" alt="" />
+                <div class="content">
+                    log-in to your account
+                </div>
+            </h2>
+            <form action="http://www.baidu.com" method="post" class="ui large form">
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon">
+                            </i>
+                            <input type="email" name="email" placeholder="E-mail address" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input minlength="6" type="password" name="password" placeholder="Password" />
+                        </div>
+                    </div>
+                    <button type="submit" class="ui fluid large teal submit button">Login</button>
+                    <!-- <div class="ui fluid large teal submit button">Login</div> -->
+                </div>
+                <div class="ui error message">
+                    <ul class="list">
+                        <li>Please enter your e-mail</li>
+                        <li>Please enter a valid e-mail</li>
+                        <li>Please enter your password</li>
+                        <li>Your Password must at least 6 character</li>
+                    </ul>
+                </div>
+            </form>
+            <div class="ui message">
+                New to us?<a href="#">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="http://www.semantic-ui.cn/examples/assets/library/jquery.min.js"></script>
+    <!-- cdn服务器 寻找最近的资源    semantic依赖于jquery-->
+    <script src="https://cdn.bootcss.com/semantic-ui/2.3.1/semantic.min.js"></script>
+    <script>
+        $(function () {
+            // .form装上表单验证功能
+            $('.ui.form').form({
+                fields: {
+                    email: {
+                        identifier: 'email',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'Please enter your email'
+                            },
+                            {
+                                type: 'email',
+                                prompt: 'please enter a valid e-mail'
+                            }
+                        ]
+                    },
+                    password: {
+                        identifier: 'password',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'Please enter your password'
+                            },
+                            {
+                                type: 'length[6]',
+                                prompt: 'Your password must be at leaset 6 character'
+                            }
+                        ]
+                    }
+                }
+            })
+
+
+            // $('.ui.form').submit(function(event) {
+            //     // console.log(event);
+            //     //阻止默认行为
+            //     event.preventDefault;
+            //     let email = $('input[name="email"]').val();
+            //     let password = $('input[name="password"]').val();
+            //     // alert(email, password);
+            //     if (!email) {
+            //         alert('请输入邮箱');
+            //         return;
+            //     }
+            //     if (!/^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$/.test(email)) {
+            //         alert('请输入正确的邮箱');
+            //         return;
+            //     }
+            //     if(!password) {
+            //         alert('请输入密码');
+            //         return;
+            //     }
+            //     if(!(password.length < 6)) {
+            //         alert('密码不能小于6位');
+            //         return;
+            //     }
+            //     this.submit();
+            //     // alert('要提交了');
+            //     // return false;
+            // });
+        })
+    </script>
+</body>
+
+</html>
