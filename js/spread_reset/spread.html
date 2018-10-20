@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="people">
+        <p>cat</p>
+        <p>dog</p>
+        <p>long</p>
+    </div>
+    
+    <!-- ... 解构与展开 -->
+
+
+    <script>
+        let three = Array.from(document.querySelectorAll('.people p'));
+        console.log(three);
+        three = three.map((index) => index.textContent);
+        console.log(three);
+
+        const deepFish = {
+            pizzaName: 'Deep Fish',
+            size: 'Medium',
+            ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+        }
+        const shoppingList = ['Milk', 'Flour',...deepFish.ingredients];
+        console.log(shoppingList);
+
+        const team = ['孙大勇', '小虎', '狂小狗', '麻辣香锅', '小虎', 'faker'];
+        // const captain = [];
+        // const assistant = [];
+        // const player = [];
+        const [captain, assistant, ...player] = team;
+        // const player = team.slice(2,);
+        console.log(player)
+        console.log(captain, assistant, player);
+    </script>
+
+</body>
+</html>
