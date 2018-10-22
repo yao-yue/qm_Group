@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>appearance</title>
+    <style>
+        select {
+            -webkit-appearance: button;
+
+        }
+        input {
+            /* appearance  重点 */
+            -webkit-appearance: none;
+            /* outline （轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。 */
+            /* outline: none;  */
+            outline:#00ff00 dotted thick;          
+            border: none;
+            background-color: transparent;
+        }
+        .btn {
+            display: block;
+            color: white;
+            background-color: green;
+            font-size: 18px;
+            line-height: 2.6666;  
+            text-align: center;
+            /* 如何将1px  => 0.5px ？ iphone  */
+            border: 1px solid #ccc;
+            position: relative;
+            width: 100px;
+            border-radius: 15px;
+        }
+        .btn::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: 0;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            transform: scale(0.5);
+            /* 设置旋转元素的基点位置 */
+            transform-origin: 0 0;
+            /* 小细节  如果按钮有rds 伪元素添加一个倍数的rds */
+            border-radius: 30px;
+            /* box-sizing: border-box; */
+        }
+        .btn:active {
+            background-color: rgba(0, 255, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="btn">primary</a>
+    <input type="text" />
+    <select name="" id="">
+        <option value="0">请选择</option>
+        <option value="1">男</option>
+        <option value="2">女</option>
+    </select>
+</body>
+</html>
