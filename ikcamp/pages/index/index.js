@@ -2,6 +2,10 @@
 //获取应用实例
 const app = getApp()
 
+//引入配置模块
+import config from '../../utils/config'
+// console.log(config.defaultBarTitle);
+
 Page({
   data: {
     motto: 'Hello World',
@@ -23,7 +27,22 @@ Page({
     })
   },
 
+  showDetial: function(e) {
+    let dataset = e.currentTarget.dataset;
+    let item = dataset && dataset.item;
+    let contentId = item.contentId || 0;
+    wx.navigateTo({
+      url: `../detial/detial?contentId=${contentId}`
+    });
+
+  },
+
+
   onLoad: function () {
+    let title = config.defaultBarTitle;
+    wx.setNavigationBarTitle({
+      title,
+    })
     this.requestArticle()
   },
   requestArticle: function () {
