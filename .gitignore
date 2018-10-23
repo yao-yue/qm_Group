@@ -58,6 +58,8 @@ typings/
 # dotenv environment variables file
 .env
 
+vant-weapp/
+
 
 
 # git 常用指令
