@@ -18,11 +18,12 @@ Page({
       url: 'https://www.easy-mock.com/mock/5bcae62e0616ca41e700187e/detial#!method=get',
       success: function(res) {
         let title = res.data.data.title;
+        console.log(res);
         console.log(title);
         wx.setNavigationBarTitle({
           title,
           success: function(res) {
-            console.log(success);
+            console.log(res);
           }
         })
       }

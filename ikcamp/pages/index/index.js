@@ -27,12 +27,12 @@ Page({
     })
   },
 
-  showDetial: function(e) {
+  showDetail: function(e) {
     let dataset = e.currentTarget.dataset;
     let item = dataset && dataset.item;
     let contentId = item.contentId || 0;
     wx.navigateTo({
-      url: `../detial/detial?contentId=${contentId}`
+      url: `../../detial/detial?contentId=${contentId}`
     });
 
   },
