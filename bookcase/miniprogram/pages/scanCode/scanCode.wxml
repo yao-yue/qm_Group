@@ -1,0 +1,7 @@
+<!-- vant来自于有赞， row layout组件 -->
+<van-row>
+<!-- 栅格系统居中，24个单位 这里取8 -->
+    <van-col span="9" offset="9">
+        <van-button type="primary" bind:click="scanCode">扫码加书</van-button>
+    </van-col>
+</van-row>
