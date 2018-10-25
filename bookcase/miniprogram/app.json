@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/add/add",
     "pages/scanCode/scanCode",
     "pages/index/index"
   ],
