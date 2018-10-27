@@ -1,0 +1,1 @@
+<button bindtap="imgCheck">检查图片</button>
