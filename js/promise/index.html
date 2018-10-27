@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js 单线程，事件监听，Event Loop  
+        // setTimeout，addEventListener  callback挂载到event loop  
+        // 定时器的时间会有误差 不会严格执行  loop轮循时间
+        // setTimeout(function () {
+        //     console.log('aaaa');
+        // },1000);
+        // console.log('bbbb');
+        async function foo() {
+            let result = await new Promise((resolve, reject) => {
+                setTimeout(function () {
+                    console.log('aaaa');
+                    resolve('correct');
+                }, 1000);
+            });
+            console.log(result);
+            console.log('bbbb');
+        }
+        foo();
+    </script>
+</body>
+
+</html>
