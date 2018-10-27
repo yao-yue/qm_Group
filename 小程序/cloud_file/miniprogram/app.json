@@ -8,8 +8,9 @@
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
-    
+    "pages/chooseLib/chooseLib",
+    "pages/user/user",
+    "pages/photo/photo"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -17,5 +18,17 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "上传照片"
+      }
+    ]
   }
 }

@@ -1,4 +1,13 @@
-<block wx:for="{{userList}}">
+<block wx:for="{{userList}}" wx:key="index">
+  <navigator url="../user/user?id={{item._openid}}">
+    <van-card 
+      title="{{item.nickName}}"
+      desc="{{item.province}}"
+      centered
+      thumb-class="thumb-class"
+      thumb="{{item.avatarUrl}}"
+    />
+  </navigator>
 </block>
 <view class="floatBtn">
   <button

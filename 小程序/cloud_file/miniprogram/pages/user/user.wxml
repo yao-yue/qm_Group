@@ -1,0 +1,18 @@
+<view class="avatarBox">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view >{{userInfo.nickname}}</view>
+    <navigator url="../add/add" open-type="switchTab">上传图片</navigator>
+    <!-- <navigator src="../add/add">上传图片</navigator> -->
+</view>
+
+<van-panel title="{{userInfo.nickName}}用户图片">
+    <van-row class="iamgeBox">
+        <block wx:for="{{photos}}" wx:key="item._id">
+            <navigator url="../photo/photo?id={{item._id}}">
+                <van-col span="8">
+                    <image class="image" src="{{item.image}}"></image>
+                </van-col>
+            </navigator>
+        </block>
+    </van-row>
+</van-panel>
