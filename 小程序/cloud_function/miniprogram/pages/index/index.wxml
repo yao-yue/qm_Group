@@ -1,1 +1,3 @@
 <button bindtap="http">http</button>
+
+<button bindtap='goImgCheck'>navTO</button>

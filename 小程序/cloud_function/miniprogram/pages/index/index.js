@@ -16,5 +16,10 @@ Page({
       console.log(res);
       console.log(res.result);
     })
+  },
+  goImgCheck: () => {
+    wx.navigateTo({
+      url: '../imageCheck/imageCheck?key=112',
+    })
   }
 })

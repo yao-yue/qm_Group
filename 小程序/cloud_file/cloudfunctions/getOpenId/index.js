@@ -7,5 +7,5 @@ cloud.init()
 exports.main = async (event, context) => {
   // event 里可以拿到openId  用户
   console.log(event);
-  return event.userInfo
+  return event.userInfo.openId
 }
