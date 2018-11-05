@@ -1,0 +1,4 @@
+<!-- 算法、js+canvas+three.js -->
+<view>
+  <canvas id="effect" canvas-id="effect"></canvas>
+</view>
