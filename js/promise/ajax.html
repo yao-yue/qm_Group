@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+// 串联
+        // function ajax(callback) {
+        //     // console.log(callback);
+
+        //     //http请求4步   实例-打开-发送-监听
+        //     const xhr = new XMLHttpRequest();  
+        //     return function (url) {
+        //         xhr.open('get', url, true);
+        //         xhr.send();
+        //         xhr.onreadystatechange = function() {
+        //             if(xhr.readyState == 4&&xhr.status == 200) {
+        //                 callback(xhr.responseText);
+        //             }
+        //         }
+        //     }
+        // }
+        // const ajaxId = ajax((data) => {
+        //     const ajaxInfo = ajax(() => {
+        //         const info = JSON.parse(data);
+        //         console.log(info);
+        //     });
+        //     const id =  JSON.parse(data).id;
+        //     ajaxInfo(`info.json?id=${id}`);
+        // });
+        // ajaxId('/id.json');
+
+Promise
+    .all([postsPromise, streetCarsPromise])
+    .then(rerponses => {
+        // console.log(responses);
+        // 二进制流
+        // .all一定要是一个数组
+        return Promise.all((responses.map(res => res.json())))
+    })
+    .then(responses => {
+        console.log(responses);
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+    </script>
+
+</body>
+
+</html>

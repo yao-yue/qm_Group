@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="javascript:saveData();" class="1" name="userForm">
+        <div class="fieldset">
+            <lable class="1">用户名</lable>
+            <input type="text" name="username" required>
+        </div>
+        <div class="fieldset">
+            <lable class="1">邮箱</lable>
+            <input type="email" name="email" required>
+        </div>
+    </form>
+    <div><input type="submit" value="保存">提交</div>
+
+    <script>
+        const usernameInput = document.forms['userForm']['username'];
+        const emailInput = document.forms['userForm']['email']
+        function saveData() {
+            const username = usernameInput.value.trim();// trim去除一些空格、换行
+            const email = emailInput.value.trim();
+            window.localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+        } 
+    </script>
+</body>
+
+</html>
