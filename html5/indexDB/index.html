@@ -9,27 +9,52 @@
 </head>
 
 <body>
-    <form action="javascript:saveData();" class="1" name="userForm">
+    <form action="javascript:saveData();" name="userForm">
         <div class="fieldset">
-            <lable class="1">用户名</lable>
+            <lable>用户名</lable>
             <input type="text" name="username" required>
         </div>
         <div class="fieldset">
-            <lable class="1">邮箱</lable>
+            <lable>邮箱</lable>
             <input type="email" name="email" required>
         </div>
+        <div>
+            <input type="submit" value="保存" />
+            <!-- //加上type="button" 确保不是提交按钮 不加的话会出问题 -->
+            <button type="button" onclick="localStorage.removeItem('user');">清空</button>
+        </div>
     </form>
-    <div><input type="submit" value="保存">提交</div>
-
     <script>
         const usernameInput = document.forms['userForm']['username'];
-        const emailInput = document.forms['userForm']['email']
+        const emailInput = document.forms['userForm']['email'];
+        init();
+        function init() {
+            if (localStorage.getItem('user')) {
+                const user = JSON.parse(localStorage.getItem('user'));
+                usernameInput.value = user.username;
+                emailInput.value = user.email;
+            }
+
+        }
         function saveData() {
-            const username = usernameInput.value.trim();// trim去除一些空格、换行
+            const username = usernameInput.value.trim();
             const email = emailInput.value.trim();
-            window.localStorage.setItem('username', username);
-            localStorage.setItem('email', email);
-        } 
+            const info = {
+                username,
+                email,
+                age: 21,
+                single: true,
+                rich: 'high'
+            }
+            localStorage.setItem('user', JSON.stringify(info));
+            // localStorage.setItem('email', email);
+        }
+
+        fetch('/info/json')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     </script>
 </body>
 
