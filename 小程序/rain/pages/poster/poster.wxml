@@ -1,0 +1,6 @@
+<view class="box">
+<button class="shareBtns" bindtap='onSaveImg'>生成poster</button>
+<canvas canvas-id="myCanvas" style="position:fixed;visibily:hidden;width: 295px; height: 350px;" />
+<button bindtap="saveImageToPhoto">保存照片到相册</button>
+<button bindtap="preview">预览照片</button>
+</view>
