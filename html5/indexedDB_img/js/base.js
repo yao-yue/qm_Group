@@ -31,6 +31,18 @@
         const transaction = db.transaction(["elephants"], readWriteMode);
         //put不会重复添加  add会重复添加
         transaction.objectStore("elephants").put(blob,"image"); 
+        transaction.objectStore("elephants").get("image").onsuccess = function(event) {
+            const imgFile = event.target.result;
+            // blob文件, img src url 本地，blob://支持本地打开文件
+            const URL = window.URL || window.webkitURL;
+            //二进制文件变成一个URL  能够得到一个访问地址
+            const imgURL = URL.createObjectURL(imgFile);
+            console.log(imgURL);
+            document.getElementById('elephant').src = imgURL;
+            document.getElementById('elephant').onload = function() {
+                window.URL.revokeObjectURL(this.src);
+            }
+        }
     }
     request.onerror = function(event) {
         console.log('err creating/accessing IndexedDB database');
