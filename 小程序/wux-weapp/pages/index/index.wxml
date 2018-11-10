@@ -1,0 +1,5 @@
+<view class="container">
+  <wux-badge count="9"></wux-badge>
+  <wux-badge count="110"></wux-badge>
+  <wux-badge count="9"></wux-badge>
+</view>
