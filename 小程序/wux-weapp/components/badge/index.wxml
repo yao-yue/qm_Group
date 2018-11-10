@@ -1,0 +1,4 @@
+<view class="wux-badge ">
+    <slot></slot>
+    <view class="wux-badge__count test-badge">{{finalCount}}</view>
+</view>

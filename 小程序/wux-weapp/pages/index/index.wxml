@@ -1,5 +1,5 @@
 <view class="container">
-  <wux-badge count="9"></wux-badge>
-  <wux-badge count="110"></wux-badge>
-  <wux-badge count="9"></wux-badge>
+  <badge test-badge="green_badge" count="{{num}}">
+    <text class="1">未读消息</text>
+  </badge>
 </view>
