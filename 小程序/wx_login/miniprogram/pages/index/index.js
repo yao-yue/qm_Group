@@ -27,10 +27,49 @@ Page({
             nickname: res.userInfo.nickname,
             avatarUrl: res.userInfo.avatarUrl
           })
+          globalData.nickname = res.nickname
+          globalData.avatarUrl = res.avatarUrl
+          // session 服务器跟踪服务
+          let openid = wx.getStorageSync('openid'); //同步写法 会阻塞一下程序
+          if (openid) {
+
+          } else {
+            this.getUserOpenId(() => {
+
+            }, () => {
+              // 再登录一次
+              this.setData({
+                auth: 0
+              })
+            })
+          }
         }
       })
     }
 
+  },
+  getUserOpenId (success, fail) {
+    console.log('getUserOpenId');
+    wx.login({
+      success: (res) => {
+        console.log(res);
+// ----------------------------这里前后端分界------------------------------------
+        wx.cloud.callFunction({
+          name: 'jscode2session',
+          data: {
+            code: res.code
+          },
+          success: (res) => {
+            // console.log(res);
+            let { openid = '',session_key = '' } = res.result
+            wx.getStorage({
+              key: 'openid',
+              data: res.openid
+            })
+          }
+        })
+      }
+    })
   },
   // 获取用户许可范围，得到范围  该干嘛干嘛
   // success type function fail function 失败 es6
