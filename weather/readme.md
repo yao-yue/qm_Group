@@ -6,7 +6,7 @@
         命令行转码 babel-cli
     es7 ansyc await 
 
-    typescript  //js的超级  ts语言
+    typescript  //js的超集  ts语言
     es6/7/8 转化 es5
     html 模板
 
