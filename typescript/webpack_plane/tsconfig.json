@@ -1,7 +1,13 @@
 {
     "compilerOptions": {
         "module": "es6",
-        "target": "es5"
+        "target": "es5",
+        //排除一些版本问题造成的报错 promise
+        "lib": [
+            "es5",
+            "dom",
+            "es2015.promise"
+        ]
     },
     //只在哪个目录下编译
     "include": [
