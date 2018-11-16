@@ -1,0 +1,13 @@
+{
+  "description": "test",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "appid": "wx830c0b9bf6e2ab19",
+  "projectname": "wepy-shop",
+  "miniprogramRoot": "./dist"
+}
