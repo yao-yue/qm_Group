@@ -1,18 +1,18 @@
 <style lang="less">
-@import "./styles/base";
-@import "./styles/icon";
-@import "./styles/style";
+@import './styles/base';
+@import './styles/icon';
+@import './styles/style';
 </style>
 
 <script>
-// wpy是一块三明治 在vue里面叫做胶囊 wxml wxss js json集中到一个文件 方便管理
-import wepy from 'wepy'
-import 'wepy-async-function'
+// wpy是一块三明治 胶囊 wxml wxss js json 集中到一个文件 方便管理
+import wepy from 'wepy';
+import 'wepy-async-function';
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/authorize',
       'pages/home',
+      'pages/authorize',
       'pages/classify',
       'pages/shop_cart',
       'pages/info'
@@ -25,41 +25,39 @@ export default class extends wepy.app {
       enablePullDownRefresh: false,
       backgroundColor: '#EFEFEF'
     },
-    "tabBar": {
-      "color": "#999999",
-      "selectedColor": "#ff6a3c",
-      "backgroundColor": "#ffffff",
-      "borderStyle": "black",
-      "list": [{
-        "pagePath": "pages/home",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/classify",
-        "text": "分类"
-      },
-      {
-        "pagePath": "pages/shop_cart",
-        "text": "购物车"
-      },
-      {
-        "pagePath": "pages/info",
-        "text": "我"
-      }
+    tabBar: {
+      color: '#999',
+      selectedColor: '#ff6a3c',
+      backgroundColor: '#fff',
+      borderStyle: 'black',
+      list: [
+        {
+          pagePath: 'pages/home',
+          text: '首页'
+        },
+        {
+          pagePath: 'pages/classify',
+          text: '分类'
+        },
+        {
+          pagePath: 'pages/shop_cart',
+          text: '购物车'
+        },
+        {
+          pagePath: 'pages/info',
+          text: '我'
+        }
       ]
     }
-  }
-
-  globalData = {}
+  };
+  globalData = {};
 
   constructor() {
-    super()
-    this.use("requestfix")
-    this.use("promisify")
+    super();
+    this.use('requestfix');
+    this.use('promisify');
   }
 
-  async onLaunch(option) {
-    
-  }
+  async onLaunch(option) {}
 }
 </script>

@@ -1,0 +1,15 @@
+<template>
+    <view>bomb</view>
+</template>
+
+<script>
+import wepy from 'wepy';
+export default class bombScreen extends wepy.component {
+
+}
+</script>
+
+<style>
+
+</style>
+
