@@ -8,13 +8,14 @@
         </swiper-item>
       </block>
      </swiper>
-     <boomscreen />
+     <bombscreen :show.sync="is_show_alert" @close.user="closeAlert" @callback.user="alertCallback"/>
   </view>
 </template>
 
 
 <script>
   import wepy from 'wepy'
+  import tip from '@/utils/tip'
   import Bombscreen from '@/components/bomb_screen'
   // 前后端连调   api @指向src文件
   import api from '@/api/api'
@@ -24,7 +25,7 @@
     }
 
     components = {
-      boomscreen: Bombscreen
+      bombscreen: Bombscreen
     }
 
     data = {
@@ -33,12 +34,21 @@
       autoplay: true,
       interval: 3000,
       duration: 1000,
-      adList: []
+      adList: [],
+      is_show_alert: true
     }
 
     onLoad () {
-      this.getAdlist();
-      
+      this.getAdlist();  
+    }
+
+    methods = {
+      closeAlert () {
+        tip.alert('关闭了');
+      },
+      alertCallback () {
+        tip.alert('参加活动');
+      }
     }
     async getAdlist () {
       const data = await api.getAdlist({
