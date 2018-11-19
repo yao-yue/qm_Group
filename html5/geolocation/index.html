@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Geolocation</title>
+</head>
+
+<body>
+    <h1>HTML Geolocation Distance Trace#status</h1>
+    <p id="status">HTML5 Geolocation is <strong>not</strong> supported in your browser.</p>
+    <table border="1">
+        <tr>
+            <td width="40" scope="col">Latitude</td>
+            <td width="114" id="latitude">latitude</td>
+        </tr>
+        <tr>
+            <td>Longitude</td>
+            <td id="longitude">longitude</td>
+        </tr>
+        <tr>
+            <td>accuracy</td>
+            <td id="accuracy">accuracy</td>
+        </tr>
+        <tr>
+            <td>Last Timestamp</td>
+            <td id="timestamp">timestamp</td>
+        </tr>
+    </table>
+    <h4 id="currDist">Current distance traveled: 0.0KM</h4>
+    <h4 id="totalDist">Total distance traveled: 0.0KM</h4>
+    <script>
+        function loadDemo() {
+            if (navigator.geolocation) {
+                updateStatus("HTML5 Geolocation is supported in your browser.");
+                //用于注册监听器，在设备的地理位置发生改变的时候自动被调用。也可以选择特定的错误处理函数。
+                navigator.geolocation.watchPosition(updatelocation, handleLocationError, { maximumAge: 20000 })
+            }
+        }
+        function updatelocation(position) {
+            console.log(position);
+            // coords坐标 latitude纬度 longitude经度 timestamp时间戳 accuracy精确度
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            let accuracy = position.coords.accuracy;
+            let timestamp = position.timestamp;
+            console.log(latitude, longitude, accuracy, timestamp);
+            document.getElementById("latitude").innerHTML = latitude;
+            document.getElementById("longitude").innerHTML = longitude;
+            document.getElementById("accuracy").innerHTML = accuracy;
+            document.getElementById("timestamp").innerHTML = timestamp;
+            if (accuracy >= 500) {
+                updateStatus('Need more accurate values to calculate distance');
+            }
+        }
+        function handleLocationError(error) {
+            switch (error.code) {
+                case 0:
+                    updateStatus("There was an error while retrieving your loaction:" + error.message);
+                    break;
+                case 1:
+                    updateStatus("There user prevented this page from retriving a location");
+                    break;
+                case 2:
+                    updateStatus("The browser was unable to determin your location" + error.message);
+                    break;
+                case 3:
+                    updateStatus("Timeout");
+                    break;
+            }
+        }
+        function updateStatus(message) {
+            document.getElementById('status').innerHTML = message
+        }
+        window.addEventListener("load", loadDemo, false);
+
+    </script>
+</body>
+
+</html>
