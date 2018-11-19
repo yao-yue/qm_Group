@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grid</title>
+    <style>
+    /* grid 面向未来的布局 可以向同行跟列二维布局 */
+    .container {
+        display: grid;
+        grid-template-columns: repeat(5, 117px);
+        grid-auto-rows: minmax(40px, auto);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+    .item {
+        text-align: center;
+        padding: 5px;
+        font-size: 20px;
+        box-sizing: border-box;
+        color: #929796;
+        background-color: #333;
+        border-radius: 5px;
+    }
+    .item:nth-child(odd) {
+        background-color: #424242;
+
+    }
+    .item-4 {
+        line-height: 370px;
+        /* grid-row-start grid-column-start grid-row-end grid-column-end */
+        grid-area: 1 / 4 / 6 / 6;
+    }
+    .item-20 {
+        grid-area: 6 / 4 / 7 / 6;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item-1">item-1</div>
+        <div class="item item-2">item-2</div>
+        <div class="item item-3">item-3</div>
+        <div class="item item-4">item-4</div>
+        <div class="item item-5">item-5</div>
+        <div class="item item-6">item-6</div>
+        <div class="item item-7">item-7</div>
+        <div class="item item-8">item-8</div>
+        <div class="item item-9">item-9</div>
+        <div class="item item-10">item-10</div>
+        <div class="item item-11">item-11</div>
+        <div class="item item-12">item-12</div>
+        <div class="item item-13">item-13</div>
+        <div class="item item-14">item-14</div>
+        <div class="item item-15">item-15</div>
+        <div class="item item-16">item-16</div>
+        <div class="item item-17">item-17</div>
+        <div class="item item-18">item-18</div>
+        <div class="item item-19">item-19</div>
+        <div class="item item-20">item-20</div>
+    </div>
+</body>
+</html>
