@@ -19,8 +19,8 @@ request('http://www.smzdm.com/youhui/', (err, req) => {
     });
     // document.querySelectorAll
     $('.list.list_preferential').each((i, item) => {
-        // console.log(i, item);
-        // console.log('-------------');
+        console.log(i, item);
+        console.log('-------------');
         var $title = $('.itemName a', item);
         var url = $title.attr('href');
         var title = $title.html();
