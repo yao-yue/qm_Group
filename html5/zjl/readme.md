@@ -11,3 +11,18 @@ webpack-dev-server -> http server  在这之前dev-server会compiler webpack
 entry(入口会接受更深层次的的文件)
 module test loader 
 output(出口, )
+
+- canvas 业务逻辑模式
+    render() 负责一直画
+    递归 requestAnimationFrame(this.render.bind(this) 一个新的render函数)
+    clearRect(0, 0, w, h)
+- barrages 集合
+    那些是当前要画的
+    time 弹幕结束后要回收
+    render() 
+
+代码的思想
+    面对对象 对象的职责和分工
+    容器对象   canvas video data render() 负责一直画（递归+x轴 更新） constructor 初始化
+    业务细节对象 data item属性 render() 画出文字
+
