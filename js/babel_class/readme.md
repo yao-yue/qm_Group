@@ -17,3 +17,4 @@
     - es6的prototype 属性不可枚举 enumerable
     Object.keys()
     Object.getOwnPropertyNames() 得到对象的自身属性
+    - es5的prototype属性可以枚举

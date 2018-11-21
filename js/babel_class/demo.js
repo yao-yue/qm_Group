@@ -16,8 +16,6 @@ function Person(name) {
     _classCallCheck(this, Person);
     this.name = name;
 }
-console.log(Object.keys(Person.prototype));
-console.log(Object.getOwnPropertyNames(Person.prototype));
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
@@ -28,6 +26,9 @@ Person.prototype = {
         return this.name;
     }
 }
+console.log(Object.keys(Person.prototype));
+console.log(Object.getOwnPropertyNames(Person.prototype));
+
 // var boos = new Person('马云');   //作为构造函数执行 会返回一个包含this的属性的对象
 // console.log(boos);
 // var boos2 = Person('马化腾');   //作为普通函数来执行 不会返回一个对象 undefined
