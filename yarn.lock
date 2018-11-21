@@ -581,7 +581,7 @@ lodash.mergewith@^4.6.0:
   version "4.6.1"
   resolved "http://registry.npm.taobao.org/lodash.mergewith/download/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
 
-lodash@^4.0.0, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.17.11, lodash@~4.17.10:
   version "4.17.11"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
