@@ -1,8 +1,13 @@
 {
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
     "lodash": "^4.17.11",
     "stream-combiner2": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }
