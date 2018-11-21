@@ -11,16 +11,16 @@
 <script type="text/html" id="user_tmpl">
 <!-- 数据展示写在js里面不好调试,lol专题 
 产品和运营人员也能改页面表现 设计师也要能改 -->
-<% for(var i = 0; i < user.length; i++) { %>
+<% for(var i = 0; i < users.length; i++) { %>
     <li>
-        <a href="<%= user[i].url%>">
-            <%= user[i].name%>
+        <a href="<%= users[i].url%>">
+            <%= users[i].name%>
         </a>
     </li>
     <%}%>
 </script>
 <script src="./node_modules/lodash/lodash.min.js"></script>
-<!-- <script>  
+<script>  
 const data = {
   users: [
     { "name": "Kevin", "url": "http://localhost" },
@@ -28,12 +28,20 @@ const data = {
     { "name": "Kelly", "url": "http://localhost" }
   ]
 }
-let users = data.users;
-document.getElementById('name_list').innerHTML = users.map(user => `
-  <li>
-    <a href="${user.url}">${user.name}</a>
-  </li>
-`).join('')
-</script> -->
+const precompile = _.template(document.getElementById('user_tmpl').innerHTML);
+const container = document.getElementById('name_list');
+const html = precompile(data);
+console.log(html);
+container.innerHTML = html;
+
+
+
+// let users = data.users;
+// document.getElementById('name_list').innerHTML = users.map(user => `
+//   <li>
+//     <a href="${user.url}">${user.name}</a>
+//   </li>
+// `).join('')
+</script>
 </body>
 </html>

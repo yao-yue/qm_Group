@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板编译</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/html" id="user_templ">
+        <% for(var i = 0; i < users.length; i++) { %>
+            <li>
+                <a href="<%= users[i].url%>">
+                    <%= users[i].name%>
+                </a>
+            </li>
+            <%}%>
+    </script>
+    <script>
+        // eval template compile?
+        // script innerHTML eval for 
+        // /<% (.+?) %>/g 正则掉 $1 = for (可执行的字符串)
+        // 准备一个数组把他收纳起来 p.push($1)
+        // /<%= (.+?)%>/   push(user[i].name)
+
+        (function () {
+            // templ 模板编译的函数 _.template
+            // @params str 带编译的模板字符串 <%= %>
+            // @params data 数据源
+            // this 指向window
+            window.templ = function (str, data) {
+                var string = "var p=[];push('" 
+                + str.replace(/[\r\t\n]/g, "")
+                    .replace(/<%=(.*?)%>/g,"');p.push($1);p.push('")
+                    .replace(/<%/g, "');")
+                    .replace(/%>/g, "p.push('")
+                +"');";
+                eval(string)
+                return p.join('');
+            }
+        })();
+
+
+        let users = [
+            { "name": "Kevin", "url": "http://localhost" },
+            { "name": "Daisy", "url": "http://localhost" },
+            { "name": "Kelly", "url": "http://localhost" }
+        ]
+        const template = document.getElementById('user_templ').innerHTML;
+        document.getElementById('container').innerHTML = templ(template, users)
+    </script>
+</body>
+
+</html>
