@@ -1,3 +1,9 @@
 .green_badge {
   background: green !important;  
 }
+
+@import '../../font/font.wxss';
+
+page {
+  font-family: pf-sc;
+}
