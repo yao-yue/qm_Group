@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            position: absolute;
+            left: 0;
+            top: 40%;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="javascript:;" id="btn">点我</a>
+    <script>
+        //做封装 为了兼容性 浏览器早期不兼容
+        // function addEvent(type, el, fn) {
+        //     if (window.addEventListener) {
+        //         el.addEventListener(type, fn, false);
+        //     } else if(window.attachEvent) {
+        //         el.attachEvent('on', type, fn);
+        //     }
+        // }
+        // addEvent('click', document.getElementById('btn'), () => {
+        //     alert('点击了按钮')
+        // })
+
+
+
+        // 惰性函数 不必每次都if else 浪费性能
+        // 不必立即去嗅探 当要用户点击的的时候再去嗅探
+        function addEvent(type, el, fn) {
+            if (window.addEventListener) {
+                //惰性一下
+                addEvent = function(type, el, fn) {
+                    el.addEventListener(type, fn, false)
+                }
+            } else if (window.attachEvent) {
+                addEvent = function(type, el, fn) {
+                    el.attachEvent('on' + type, fn);
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
