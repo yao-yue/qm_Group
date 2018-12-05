@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Throttle 节流</title>
+    <style>
+    #container {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        background: #666666;
+        line-height: 500px;
+        text-align: center;
+        color: white;
+        font-size: 100px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">0</div>
+    <script>
+        const container = document.getElementById('container');
+        // container.onmousemove= function() {
+        //     let num = parseInt(this.innerHTML);
+        //     this.innerHTML = ++num;
+        // }
+        function throttle (func, wait) {
+            //闭合空间的自由变量
+            var context, args;
+            var previous = 0;
+
+            return function () {
+                // console.log(this)  //this指向container
+                var now = +new Date();
+                context = this;
+                args = arguments;
+                
+                if(now - previous > wait) {
+                    console.log(args)
+                    // B.apply(A, arguments);
+                    // B.call(A, args1,args2);
+                    func.apply(context, args);  
+                    previous = now;
+                }         
+            }
+        }
+        function getUserAction() {
+            let num = parseInt(this.innerHTML);
+            // i++是先把i的值拿来用,然后在自增1
+            // ++i是想把i自增1然后拿来用
+            this.innerHTML = ++num;
+        }
+        container.onmousemove = throttle(getUserAction,1000)  //这个函数被作为container事件的处理函数
+    </script>
+</body>
+</html>

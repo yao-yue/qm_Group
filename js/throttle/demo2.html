@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Throttle 节流</title>
+    <style>
+    #container {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        background: #666666;
+        line-height: 500px;
+        text-align: center;
+        color: white;
+        font-size: 100px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">0</div>
+    <script>
+        const container = document.getElementById('container');
+        // container.onmousemove= function() {
+        //     let num = parseInt(this.innerHTML);
+        //     this.innerHTML = ++num;
+        // }
+        function throttle (func, wait) {
+            var timeout, 
+            context,
+            args,
+            previous = 0;
+            return function () {
+                context = this;
+                args = arguments;
+                if(!timeout) {
+                    // setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式
+                    // 如果你只想重复执行可以使用 setInterval() 方法
+                    timeout = setTimeout(function() {
+                        console.log(timeout)
+                        timeout = null;
+                        func.apply(context, args);
+                    }, wait)
+                }    
+            }
+        }
+        function getUserAction() {
+            let num = parseInt(this.innerHTML);
+            this.innerHTML = ++num;
+        }
+        container.onmousemove = throttle(getUserAction,1000)  //这个函数被作为container事件的处理函数
+    </script>
+</body>
+</html>
