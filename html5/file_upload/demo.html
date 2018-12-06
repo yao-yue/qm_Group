@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文件上传</title>
+  <style>
+  /* 拖拽区域  领空*/
+  #selectbtn {
+      font-size: 20px;
+      text-decoration: none;
+  }
+  .list-group {
+    background-color: yellow;
+    border: 2px dashed #CCC;
+    min-height: 100px;
+    width: 100px;
+  }
+  .list-group p {
+    color: 	#FF00FF;
+    line-height: 100px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  </style>
+</head>
+<body>
+
+
+    <a href="javascript:void(0);" id="selectbtn">上传文件</a>
+      <div class="list-group">
+        <input type="file" id="fileselect" style="display:none" accept="image/*" multiple/>
+    </div>
+ 
+  
+  
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+  $(function() {
+    const fileselect = document.getElementById('fileselect');
+    const selectBtn = document.getElementById('selectbtn');
+    const listGroup = document.querySelector('.list-group');
+    fileselect.addEventListener('change', displayFileInfo, false);
+    selectBtn.addEventListener('click', function() {
+      fileselect.click();
+    })
+    listGroup.innerHTML = '<p class="hint">拖拽文件到这里</p>';
+    listGroup.addEventListener('dragover', onDragOver, false);
+    listGroup.addEventListener('drop', displayFileInfo, false);
+    function onDragOver(event) {
+      event.preventDefault();    //阻止浏览器默认行为
+      event.stopPropagation();    //阻止冒泡
+      $('.list-group p').html('放开上传')
+    }
+
+    function displayFileInfo(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      listGroup.innerHTML = '';
+    //   对普通上传和拖拽式上传都统一了
+      const files = event.target.files || event.dataTransfer.files //传统文件上传以及拖拽上传
+      console.log(files);
+      for(let file of files) {
+            img = document.createElement('img'),
+            // 前端 文件到达后端之前先看到图片
+            // url = ? 传统 文件上传到服务器才有url
+            url = window.URL.createObjectURL(file),     //blob:http
+          
+          img.src = url;
+          console.log(url);
+          var imgPosX = 0;
+		var imgWidth = 256;
+          img.onload = function() {
+              window.URL.revokeObjectURL(url);
+          }
+          listGroup.appendChild(img);
+      
+          $('img').css("width", "104px");
+          $('img').css("height", "104px");
+          $('img').css("background", "cover");
+          console.log('success!')
+
+          
+
+          //文件读取
+          const reader = new FileReader();
+          reader.readAsArrayBuffer(file);
+
+        }
+    }
+  })
+  </script>
+</body>
+</html>
