@@ -58,24 +58,24 @@ Page({
         console.log('下面是登录成功的结果：')
         console.log(res);
 // ----------------------------这里前后端分界------------------------------------
-        wx.cloud.callFunction({
-          name: 'jscode2session',
-          data: {
-            code: res.code
-          },
-          complete: (res) => {
-            console.log('下面是调用获取session的云函数结果：')
-            console.log(res);
-            // let { openid = '',session_key = '' } = res.result
-            // wx.getStorage({
-            //   key: 'openid',
-            //   data: res.result.openid
-            // })
-          },
-        })
+        // wx.cloud.callFunction({
+        //   name: 'jscode2session',
+        //   data: {
+        //     code: res.code
+        //   },
+        //   complete: (res) => {
+        //     console.log('下面是调用获取session的云函数结果：')
+        //     console.log(res);
+        //     // let { openid = '',session_key = '' } = res.result
+        //     // wx.getStorage({
+        //     //   key: 'openid',
+        //     //   data: res.result.openid
+        //     // })
+        //   },
+        // })
 
         //别的方法
-        // c2s.jscode2session(res)
+        c2s.jscode2session(res)
 
       }
     })
