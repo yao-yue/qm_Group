@@ -9,13 +9,13 @@ cloud.init()
 exports.main = async (event, context) => {
     let { code } = event;
     let id = 'wx830c0b9bf6e2ab19';
-    let secretKey = 'bccdd7b4d1f2a0d9fe25f77a39510c74';
+    let secretKey = '8d3a4a59322db088d28e6f88bf35b704';
     console.log(code);
     //跟微信服务器通信
     const data = {
-        app: id,
+        appid: id,
         secret: secretKey,
-        js_code = code,
+        js_code : code,
         grant_type: 'authorization_code'
     }
     // ?后 查询字符串
@@ -23,8 +23,8 @@ exports.main = async (event, context) => {
     console.log(url);
     return new Promise((resolve, reject) => {
         request.get(url, (err, response, body) => {
-            if(error || response.statusCode !== 200) {
-                reject(error)
+            if(err || response.statusCode !== 200) {
+                reject(err)
             } else {
                 try {
                     console.log(body);
