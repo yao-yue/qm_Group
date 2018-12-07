@@ -14,3 +14,6 @@ style.loader ->
 - BrowserRouter(高级浏览器 mobile， 移动端手机应用，URL更好理解，跟后端的路由方式更加相似) 
 - HashRouter(兼容性好,支持ie8以上的所有浏览器,react支持ie9以上的浏览器 PC端选择)
 - history.pushState(data(state), title, url);
+
+
+4. match  填充
