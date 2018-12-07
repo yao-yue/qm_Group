@@ -23,7 +23,13 @@ class Sidebar extends Component {
                                     } >
                 {
                     item.children && item.children.map(menuItem => (
-                        <Item key={menuItem.key}>
+                        <Item key={menuItem.key} onClick={() => {
+                            this.setState({
+                                selectedKeys: [menuItem.key]
+                            });
+                            //title  浏览器页面的title
+                            document.title = menuItem.text;
+                        }}>
                             <Link to={menuItem.path}>{menuItem.text}</Link>
                         </Item>
                     ))
@@ -32,11 +38,17 @@ class Sidebar extends Component {
         ));
         return (
             <Sider collapsible breakpoint="lg">
-                <Menu subMenuOpenDelay={0.3} theme="dark" openKeys={openKeys} selectedKeys={selectedKeys} mode="inline" >
+                <Menu subMenuOpenDelay={0.3} theme="dark" openKeys={openKeys} 
+                        selectedKeys={selectedKeys} mode="inline" onOpenChange={this.OpenChange} >
                     {SideTree}
                 </Menu>
             </Sider>
         )
+    }
+    OpenChange = (openKeys) => {
+        this.setState({
+            openKeys
+        })
     }
 }
 export default Sidebar;
