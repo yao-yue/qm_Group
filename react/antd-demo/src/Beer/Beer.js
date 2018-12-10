@@ -32,6 +32,15 @@ export default class Beer extends Component {
         this.setState({
             loading: true
         })
+        const localStorageBeers = localStorage.getItem(`search-${searchTerm}`);
+        if(localStorageBeers) {
+            const loaclBeers = JSON.parse(localStorageBeers);
+            this.setState({
+                beers:loaclBeers,
+                loading: false
+            });
+            return;
+        }
         fetch(`http://api.react.beer/v2/search?q=${searchTerm}&type=beer`)
             .then(data => data.json())
             .then(data => {
@@ -41,6 +50,10 @@ export default class Beer extends Component {
                     beers: beers,
                     loading: false
                 })
+                localStorage.setItem(
+                    `search-${searchTerm}`,
+                    JSON.stringify(this.state.beers)
+                );
             })
             .catch(err => {console.error(err)})
     }
