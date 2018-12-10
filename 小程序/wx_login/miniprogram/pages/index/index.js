@@ -7,6 +7,7 @@ Page({
     auth: -1,     //未按按钮
   },
   onLoad (options) {
+    // this.getUserInfo()
     // 高阶函数 scope 用户的整个信息
     // 用户之前就已经同意了 success this.getUserInfo 
     //  fail () => {} 还未同意
@@ -35,7 +36,7 @@ Page({
           // session 服务器跟踪服务
           let openid = wx.getStorageSync('openid'); //同步写法 会阻塞一下程序
           if (openid) {
-
+            //如果缓存有的话就不要再去请求一次数据
           } else {
             this.getUserOpenId(() => {
 
@@ -46,6 +47,8 @@ Page({
               })
             })
           }
+        },fail() {
+          console.log('用户拒绝了~~')
         }
       })
     }
@@ -57,6 +60,15 @@ Page({
       success: (res) => {
         console.log('下面是登录成功的结果：')
         console.log(res);
+
+        const API = `https://visney.icebartech.com/api/mini/userCore/openIdLogin?code=${res.code}`
+        wx.request({
+          url: API,
+          method: "POST",
+          success: function(res) {
+            console.log(res)
+          }
+        })
 // ----------------------------这里前后端分界------------------------------------
         // wx.cloud.callFunction({
         //   name: 'jscode2session',
@@ -66,16 +78,21 @@ Page({
         //   complete: (res) => {
         //     console.log('下面是调用获取session的云函数结果：')
         //     console.log(res);
-        //     // let { openid = '',session_key = '' } = res.result
-        //     // wx.getStorage({
-        //     //   key: 'openid',
-        //     //   data: res.result.openid
-        //     // })
+        //     let { openid = '',session_key = '' } = res.result
+        //     wx.setStorage({
+        //       key: 'openid',
+        //       data: res.result.openid
+        //     })
+        //     console.log('++++++++++++')
+        //     console.log(wx.getStorageSync('openid'))
         //   },
+        // })
+        // this.setData({
+        //   auth : 1
         // })
 
         //别的方法
-        c2s.jscode2session(res)
+        // c2s.jscode2session(res)
 
       }
     })
@@ -90,11 +107,31 @@ Page({
         console.log(res);
         if (res.authSetting[name]) {
           // 用户允许获取基本信息
+          console.log(res);
           typeof success === 'function' && success();
         } else {
           typeof fail === 'function' && fail()
         }
       }
     })
-  }
+  },
+  sendHttp () {
+    wx.login({
+      success: (res) => {
+        console.log('下面是登录成功的结果：')
+        console.log(res.code);
+        // let code = wx.getStorageSync('openid');
+        // console.log(code);
+        const API = `https://visney.icebartech.com/api/mini/userCore/openIdLogin?code=${res.code}`
+        wx.request({
+          url: API,
+          method: "POST",
+          success: function(res) {
+            console.log(res)
+          }
+        })
+
+      }
+    })
+  },
 })

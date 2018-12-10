@@ -9,7 +9,7 @@ cloud.init()
 exports.main = async (event, context) => {
     let { code } = event;
     let id = 'wx830c0b9bf6e2ab19';
-    let secretKey = '8d3a4a59322db088d28e6f88bf35b704';
+    let secretKey = 'f3f56688833bc1f30c9fd322089b2841';
     console.log(code);
     //跟微信服务器通信
     const data = {
