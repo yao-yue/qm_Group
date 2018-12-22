@@ -1,7 +1,7 @@
 {
 	"miniprogramRoot": "dist/",
 	"projectname": "redux_todolist",
-	"description": "测试taro",
+	"description": "redux_todolist",
 	"appid": "wx830c0b9bf6e2ab19",
 	"setting": {
 		"urlCheck": true,
