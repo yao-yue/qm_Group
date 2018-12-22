@@ -2,7 +2,7 @@
   "name": "redux_todolist",
   "version": "1.0.0",
   "private": true,
-  "description": "测试taro",
+  "description": "redux_todolist",
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
