@@ -9,28 +9,25 @@ import { crateStore, storeChange } from './redux'
 export default class App extends Component {
     //新的API context
     // 在这个属性里的值，在内部 打破层次，拿到在顶级组件共享的状态 
-    static childContextTypes = {
-        store: PropTypes.object,
-        dispatch: PropTypes.func,
-        subscribe: PropTypes.func,
-        getStore: PropTypes.func,
-    }
+    // static childContextTypes = {
+    //     store: PropTypes.object,
+    //     dispatch: PropTypes.func,
+    //     subscribe: PropTypes.func,
+    //     getStore: PropTypes.func,
+    // }
     //第二步返回一个store
-    getChildContext () {
-        const state = {
-            head: 'This is global head!',
-            body: 'This is global body!',
-            headBtn: 'm head',
-            bodyBtn: 'm body'       
-        }
-        const {store, dispatch,subscribe, getStore } = crateStore(state, storeChange)
-        return {
-            store,
-            dispatch,
-            subscribe,
-            getStore
-        }
-    }
+    // getChildContext () {
+        
+    //     const {store, dispatch,subscribe, getStore } = crateStore(state, storeChange)
+    //     return {
+    //         store,
+    //         dispatch,
+    //         subscribe,
+    //         getStore
+    //     }
+    // }
+
+    
     render() {
         return (
             <div className="App">

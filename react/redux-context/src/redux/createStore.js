@@ -1,5 +1,5 @@
 
-export const crateStore = ( state, storeChange ) => {
+const crateStore = ( state, storeChange ) => {
     // 从订阅发布者模式去理解
     const listeners = [];
     let store = state || {};
@@ -18,3 +18,4 @@ export const crateStore = ( state, storeChange ) => {
     }
     return {store, dispatch,subscribe, getStore}
 }
+export default crateStore;

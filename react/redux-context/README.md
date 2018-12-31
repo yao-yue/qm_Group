@@ -26,3 +26,10 @@ context 用法 四步
 太烦了，不是react数据流的语法烦，
 context api代码的重复  dry   dont repeat yourself
 生命周期 _setUp() contextTypes -----connect---- react-redux HOC 高阶组件封装
+
+HOC 高阶组件
+
+-  connect 封装，有关的context的操作都交给他
+-  后代组件，只需要做自己的事情。
+
+
