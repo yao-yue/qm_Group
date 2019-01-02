@@ -1,33 +1,27 @@
+// 要将APP hoc一下  才能拿到provider的值;
+
 import React, { Component } from 'react'
-import axios from 'axios'   
+import { filmACtion } from "./actions";
+import { connect } from 'react-redux'
+
+// redux 负责解决films api    使用action
+// action 应该由组件来触发  
 
 class App extends Component {
-    componentDidMount() {
-        axios.get('https://www.easy-mock.com/mock/5bca9240e6742c1bf8220bbd/kicamp/movies#!method=get')
-        .then( (res) => {
-          this.props.store.dispatch({   //分发 action。这是触发 state 变化的惟一途径。
-            type: 'GET_FILM_DATA',
-            payload: res.data.data.films
-          });     
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    componentDidMount () {
+        //符合redux的设计模式
+        this.props.getFilmData();
     }
     render () {
-        const films = this.props.store.getState().films;
-        console.log(films);
         return (
             <div>
                 <ul>
                     {
-                        films.map((film, index) => {
-                            return (
-                                <li key={index}>
+                        this.props.films.map((film, index) => {
+                            return <li key={index}>
                                 <h2>{film.name}</h2>
                                 <img src={film.poster} alt={film.name}/>
-                                </li>
-                            )
+                            </li>
                         })
                     }
                 </ul>
@@ -35,4 +29,32 @@ class App extends Component {
         )
     }
 }
-export default App
+//从store拿出要的状态
+const mapStateToProps = (state) => {
+    return {
+        films: state.films
+    }
+}
+//异步问题
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getFilmData: () => {
+            //Actions must be plain objects. Use custom middleware for async actions.
+            //动作必须是一个普通对象，使用中间件对于异步动作
+            // dispatch({type:'', payload:''})  同步动作
+            // filmACtion(dispatch) ==》 对象   
+            // 异步  需要先去请求再去修改对象
+            dispatch(() => {
+                filmACtion(dispatch)
+            });
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps )(App)    //将context的东西转手给ApP
+
+// connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+// mapStateToProps：
+// [mapStateToProps(state, [ownProps]): stateProps] (Function): 如果定义该参数，
+// 组件将会监听 Redux store 的变化。任何时候，只要 Redux store 发生改变，mapStateToProps 
+// 函数就会被调用
