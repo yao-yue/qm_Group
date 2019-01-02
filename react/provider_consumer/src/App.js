@@ -44,9 +44,12 @@ const mapDispatchToProps = (dispatch) => {
             // dispatch({type:'', payload:''})  同步动作
             // filmACtion(dispatch) ==》 对象   
             // 异步  需要先去请求再去修改对象
-            dispatch(() => {
-                filmACtion(dispatch)
-            });
+            // dispatch(() => {
+            //     filmACtion(dispatch)
+            // });
+
+            // redux-thunk  作用 让action可以返回函数
+            dispatch(filmACtion(dispatch));
         }
     }
 }
