@@ -5,12 +5,15 @@ import reducer from './reducers'
 import Counter from './Counter'
 import reduxLogger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(reducer, applyMiddleware(reduxLogger));
-const action = type => store.dispatch({ type })
+const store = createStore(reducer, applyMiddleware(reduxLogger, sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 
+// 本质是订阅者发布模式  看着两边  
+const action = type => store.dispatch({ type })
 // 因为在UI业务中的异步超过了redux的范围、如果强行用定时器违反了redux的设计原则
 
 function render() {
