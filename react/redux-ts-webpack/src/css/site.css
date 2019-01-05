@@ -35,3 +35,6 @@
 #header-title {
     background-color: rgb(238, 235, 235);
 }
+.avatar {
+    max-width: 80px;
+}

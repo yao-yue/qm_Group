@@ -26,3 +26,11 @@ webpack.config.js 工作流
     webpack-dev-server port
     html-plugin src/index.html
 
+- typescript 在react中做加法，让项目强类型化，减少错误
+1. members： MemberEntity[]
+生命周期中请求，api方法返回值类型约束
+interface MemberEntity
+2. model 层 
+3. api层 
+
+
