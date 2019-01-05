@@ -1,3 +1,4 @@
 export * from './Header';
-export * from './about';
+export * from './About';
 export * from './members';
+export * from './member';

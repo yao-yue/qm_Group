@@ -1,7 +1,9 @@
 -  webpack 
     --hot  热更新  当状态改变时只更新一部分，
     --open 自动打开浏览器
-
++ 新建readme.md
++ npm init -y 
++ 
 项目项目目录
 .babelrc  
 webpack.config.js
@@ -32,5 +34,9 @@ webpack.config.js 工作流
 interface MemberEntity
 2. model 层 
 3. api层 
+
+
+common input, button 
+form => page (redux state) => pageContainer
 
 

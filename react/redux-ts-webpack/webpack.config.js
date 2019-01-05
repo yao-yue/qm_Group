@@ -14,11 +14,14 @@ module.exports = {
    app: './index.tsx',
    vendorStyles: [
      '../node_modules/bootstrap/dist/css/bootstrap.css',
+     '../node_modules/toastr/build/toastr.css'
    ],
+   // 不会变lib的单独放在一起  性能优化
    vendor: [
      'react',
      'react-dom',
      'react-router-dom',
+     'toastr'
    ]
  },
  output: {

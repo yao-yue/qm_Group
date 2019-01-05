@@ -26,10 +26,12 @@
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/react-router-dom": "^4.3.1",
+    "@types/toastr": "^2.1.35",
     "bootstrap": "^4.1.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "toastr": "^2.1.4"
   },
   "keywords": [],
   "author": "",
