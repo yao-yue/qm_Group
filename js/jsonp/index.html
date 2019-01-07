@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        function ajax (params) {
+            params = params || {};
+            params.data = params.data || {};
+            var json = params.jsonp?jsonp(params):json(params);
+
+            function json(params) {
+                params.type = (params.type || 'GET').toUpperCase();
+                params.data = formtParams(params.data);
+                var xhr = null;
+                if(window.XMLHttpRequest) {
+                    xhr = new XMLHttpRequest();
+                }else {
+                    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                xhr.onreadystatechange = function() {
+                    // 不再活跃
+                    if(xhr.readyState === 4) {
+                        var status = xhr.status;
+                        if(status >= 200 && status < 300) {
+                            var response = '';
+                            var type = xhr.getResponseHeader('Content-type');
+                            if(type.indexOf('xml') !== -1 && xhr.responseXML) {
+                                response = xhr.responseXML
+                            }else if(type === 'application/json') {
+                                response = JSON.parse(xhr.responseText);
+                            }
+                            params.success && params.success(response);
+                        }else {
+                            params.error && params.error(status);
+                        }
+                    }
+                }
+                if(params.type == 'GET') {
+                    xhr .open(params.type, params.url + '?' + params.data, true);
+                    xhr.send(null);
+                }else {
+                    xhr.open(params.type, params.url, true);
+                    // http 头部
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urllencoded; charset=UTF-8')     
+                    xhr.send(params.data);
+                }
+             }
+             function formtParams(data) {
+                var arr = [];
+                for(var name in data) {
+                    // queryString/ path?a=1&b=2
+                    arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));  // 编码一下 防止出问题 表单提交的数据一般都要encode一下
+                }
+                arr.push('v='+ random())  //防止调用缓存
+                return arr.join('&')
+             }
+             function random() {
+                 return Math.floor(Math.random()*10000 + 500);
+             }
+        }
+
+        // 同一个域名 localhost 同一个端口port 800
+        ajax({
+            url: '/data.json',
+            // jsonp: 'jsonpCallback',
+            data: { 'b': '异步请求'},
+            success: function(res) {
+                console.log(res);
+            },
+            error: function(err) {
+                console.log(err)
+            }
+        })
+    </script>
+</body>
+
+</html>
