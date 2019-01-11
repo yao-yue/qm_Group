@@ -3,13 +3,13 @@ Function.prototype.bind2 = function(context) {
     // 2.新函数运行的时候，this指向context
     // this指向--->调用bind2的函数foo
     
-    var self = this;
+    var self = this;  // 此时this指向当前函数 
     //获取到参数   slice(start, end)   参数this.arguments 调用slice(1)
     var args = Array.prototype.slice.call(this.arguments, 1);
     return function() {    
         // arguments --()这个返回的函数的传入的参数  a(18);
-        var bindArgs = Array.prototype.slice.call(arguments);
-        self.apply(context, args.concat(bindArgs));
+        var bindArgs = Array.prototype.slice.call(arguments);    //arguments 是一个伪数组 他call真数组的slice方法
+        self.apply(context, args.concat(bindArgs));   //context可以调用self的方法，及this指向self->function->调用bind的函数
     }
 }
 var obj = {
@@ -22,6 +22,7 @@ const foo = function(name, age) {
 // 硬绑定-防止this的丢失
 
 const a = foo.bind2(obj, 'mark');
+// 利用bind   手动绑定obj的this绑定到foo上
 a(18);
 
 
