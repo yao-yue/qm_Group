@@ -80,6 +80,11 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
+basic-redis-factory@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/basic-redis-factory/-/basic-redis-factory-0.0.3.tgz#ed1b97ad081bfe67adcf96df87d98e6b4c0b3c91"
+  integrity sha1-7RuXrQgb/metz5bfh9mOa0wLPJE=
+
 bluebird@^3.4.6, bluebird@^3.5.0, bluebird@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.3.tgz#7d01c6f9616c9a51ab0f8c549a79dfe6ec33efa7"
@@ -242,6 +247,11 @@ d@1:
   integrity sha1-dUu1v+VUUdpppYuU1F9MWwRi1Y8=
   dependencies:
     es5-ext "^0.10.9"
+
+dayjs@^1.7.8:
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.7.8.tgz#05d288f8d4b2140110cc1519cfe317d6f1f11a3c"
+  integrity sha512-Gp4Y5KWeSri0QOWGzHQz7VrKDkfEpS92dCLK7P8hYowRFbaym1vj3d6CoHio3apSS4KSi/qb5Edemv26IN5Hfg==
 
 debug@^2.2.0, debug@^2.6.9:
   version "2.6.9"
@@ -464,6 +474,14 @@ hapi-pagination@1:
     boom "^5.0.0"
     hoek "^4.0.2"
     joi "^10.2.1"
+
+hapi-redis@6:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/hapi-redis/-/hapi-redis-6.0.0.tgz#431d2363bb6eacd0c34db6453608852b54b05f22"
+  integrity sha1-Qx0jY7turNDDTbZFNgiFK1SwXyI=
+  dependencies:
+    basic-redis-factory "0.0.3"
+    redis "0.12.x"
 
 hapi-swagger@7:
   version "7.10.0"
@@ -1075,6 +1093,11 @@ punycode@2.x.x:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+
+redis@0.12.x:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/redis/-/redis-0.12.1.tgz#64df76ad0fc8acebaebd2a0645e8a48fac49185e"
+  integrity sha1-ZN92rQ/IrOuuvSoGReikj6xJGF4=
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"

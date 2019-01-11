@@ -1,6 +1,6 @@
 yarn add hapi-swagger@7 inert@4 vision@4 package
 
-http://127.0.0.1:8000/documentation  接口文档地址
+http://127.0.0.1:8000/un  接口文档地址
 
 Swagger API UI框架
 API 是开发工作中的一环，hapi-swagger 将API开发融合进代码之中。
