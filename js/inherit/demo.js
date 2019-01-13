@@ -16,3 +16,6 @@ function Child () {
 Child.prototype = new Person();
 var child = new Child()
 child.getName();
+
+// 原型链继承
+// 子类的原型链指向父级的原型.

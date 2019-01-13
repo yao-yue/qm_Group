@@ -29,7 +29,7 @@ function objectFactor (fn, ...args) {
     Constructor = [].shift.call(arguments);
     console.log(Constructor);
      console.log(arguments);
-    //obj 向Constructor借                        
+    //obj 向Constructor借  Constructor的this指向obj,obj可以借用Constructor的方法\及属性                    
     Constructor.apply(obj, arguments);
     // obj 上拥有Constructor 上所有属性？
     // 函数也是对象

@@ -8,7 +8,7 @@ function* lyrics() {
 
 const achy = lyrics();
 
-//Es6循环新特性 
+//Es6循环新特性 (可以循环可迭代对象)
 for (const line of achy) {
     console.log(line);
 }
