@@ -46,7 +46,7 @@
     let loop = 0;
     //递归函数:在函数内部再调用自身函数、并且有一个终止条件
     let move = () => {
-        requestAnimationFrame(() => {
+        requestAnimationFrame(() => {  //循环间隔是1000ms/60，约等于16.6ms 采用系统时间间隔
             if (nowY >= YEnd) {
                 ball.parentNode.removeChild(ball);
                 return ;
@@ -64,3 +64,9 @@
 </script>
 
 </html>
+
+<!-- 
+requestAnimationFrame特点:
+requestAnimationFrame会把每一帧中的所有DOM操作集中起来，
+在一次重绘或回流中就完成，
+并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率 -->

@@ -11,7 +11,7 @@ var Promise = function () {
         _classCallCheck(this, Promise);
 
         // 开启..
-        // new 异步任务开始执行
+        // new 异步任务开始执行    初始状态挂起 resolve后状态为resolved
         this.status = 'pending';
         this.value = undefined;
         this.reason = undefined;
